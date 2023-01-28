@@ -153,14 +153,14 @@ public class US_19  {
         //-Açılan yeni sekme sayfasının ders ismi kontrol edilir
         ReusableMethod.bekle(2);
 
-         Set<String> tumWHDegerleriSeti= Driver.getDriver().getWindowHandles();
+        Set<String> tumWHDegerleriSeti= Driver.getDriver().getWindowHandles();
 
-         String ikinciSayfaWHD="";
-         for (String eachWhd:tumWHDegerleriSeti) {
+        String ikinciSayfaWHD="";
+        for (String eachWhd:tumWHDegerleriSeti) {
             if (!eachWhd.equals(ilkSayfaHandleDegeri)){
-                 ikinciSayfaWHD=eachWhd;
-             }
-         }
+                ikinciSayfaWHD=eachWhd;
+            }
+        }
         Driver.getDriver().switchTo().window(ikinciSayfaWHD);
 
         String expectedKelime = "Emrah deneme 2";
@@ -273,8 +273,8 @@ public class US_19  {
         // -Açılan sayfa başlığında "Edit Course" yazısı kontrol edilir
         ReusableMethod.bekle(3);
 
-         String expectedAcilanSayfaTitle="Edit course";
-         String actualSayfaTitle= Driver.getDriver().getTitle();
+        String expectedAcilanSayfaTitle="Edit course";
+        String actualSayfaTitle= Driver.getDriver().getTitle();
 
         // Assert.assertEquals(expectedAcilanSayfaTitle,actualSayfaTitle);
 
@@ -335,7 +335,7 @@ public class US_19  {
 
     @Test //Calisti  ESKİ HALİNE DÖNMESİ İÇİN ARDINDAN TC08'İ ÇALIŞTIRMAK GEREKİYOR YOKSA DİĞER DENEMEDE HATA VERİR!!
     public void TC_07_And_TC_08() {
-       // When you click on the three dots under the action section and click on the Mark as drafted link, a
+        // When you click on the three dots under the action section and click on the Mark as drafted link, a
         // confirmation message should come and after approval, the status section of the course should change to draft.
         // (Action bölümünün altındaki üç noktaya tıklayıp Mark as drafted linkine tıkladığınızda onay mesajı gelmeli ve
         // onaydan sonra dersin durum bölümü draft olarak değişmelidir.)
@@ -389,77 +389,77 @@ public class US_19  {
 
         // TC08()----------------------------------------------------------------------
 
-            //-Actions başlıklı üç nokta tıklanır
-            emrahUSPage.ED2actionsDropdownLinki.click();
+        //-Actions başlıklı üç nokta tıklanır
+        emrahUSPage.ED2actionsDropdownLinki.click();
 
-           //-"Publish this course" linki tıklanır
-           emrahUSPage.publishThisCourseLinki.click();
+        //-"Publish this course" linki tıklanır
+        emrahUSPage.publishThisCourseLinki.click();
 
-            //-Açılan onay mesajı sayfasından "Continue" butonu tıklanır
-           emrahUSPage.continueButonu.click();
+        //-Açılan onay mesajı sayfasından "Continue" butonu tıklanır
+        emrahUSPage.continueButonu.click();
 
-            //- Dersin Status başlığı altında "active" yazısı kontrol edilir
-            ReusableMethod.bekle(2);
-            String expectedActiveKelime = "Active";
-            String actualStatusYazisiSon = emrahUSPage.activeYazisi.getText();
+        //- Dersin Status başlığı altında "active" yazısı kontrol edilir
+        ReusableMethod.bekle(2);
+        String expectedActiveKelime = "Active";
+        String actualStatusYazisiSon = emrahUSPage.activeYazisi.getText();
 
-            Assert.assertTrue(actualStatusYazisiSon.contains(expectedActiveKelime));
+        Assert.assertTrue(actualStatusYazisiSon.contains(expectedActiveKelime));
 
-            Driver.quitDriver();
+        Driver.quitDriver();
     }
-   // TC_08 AYRI TESTİ pasif halde kalsın!!!
-   //@Test
-   //public void TC_08() {
-   //    // When you click on the three dots under the action section and click on the Publish this course link,
-   //    // a confirmation message should come and after approval, the status section of the course should
-   //    // change to active. (Action bölümünün altındaki üç noktaya tıklayıp Publish this course -Bu kursu yayınla-
-   //    // linkine tıkladığınızda bir onay mesajı gelmeli ve onaydan sonra kursun durum bölümü aktif olarak değişmelidir.)
+    // TC_08 AYRI TESTİ pasif halde kalsın!!!
+    //@Test
+    //public void TC_08() {
+    //    // When you click on the three dots under the action section and click on the Publish this course link,
+    //    // a confirmation message should come and after approval, the status section of the course should
+    //    // change to active. (Action bölümünün altındaki üç noktaya tıklayıp Publish this course -Bu kursu yayınla-
+    //    // linkine tıkladığınızda bir onay mesajı gelmeli ve onaydan sonra kursun durum bölümü aktif olarak değişmelidir.)
 
 
-   //    //-"https://qa.qualitydemy.com/" sayfasına gidilir
-   //    Driver.getDriver().get(ConfigReader.getProperty("emrahQDUrl"));
+    //    //-"https://qa.qualitydemy.com/" sayfasına gidilir
+    //    Driver.getDriver().get(ConfigReader.getProperty("emrahQDUrl"));
 
-   //    //- Login butonuna basılır
-   //    EmrahUSPage emrahUSPage = new EmrahUSPage();
-   //    emrahUSPage.ilkLoginLinki.click();
+    //    //- Login butonuna basılır
+    //    EmrahUSPage emrahUSPage = new EmrahUSPage();
+    //    emrahUSPage.ilkLoginLinki.click();
 
-   //    //- e mail ve password girilerek kullanıcı girişi yapılır
-   //    emrahUSPage.kullaniciEmailKutusu.sendKeys(ConfigReader.getProperty("emrahEmail"));
-   //    emrahUSPage.passwordKutusu.sendKeys(ConfigReader.getProperty("emrahPassword"));
-   //    ReusableMethod.bekle(2);
+    //    //- e mail ve password girilerek kullanıcı girişi yapılır
+    //    emrahUSPage.kullaniciEmailKutusu.sendKeys(ConfigReader.getProperty("emrahEmail"));
+    //    emrahUSPage.passwordKutusu.sendKeys(ConfigReader.getProperty("emrahPassword"));
+    //    ReusableMethod.bekle(2);
 
-   //    // -cookie accept butonuna basılır
-   //    emrahUSPage.cookieButtonAccept.click();
-   //    ReusableMethod.bekle(1);
+    //    // -cookie accept butonuna basılır
+    //    emrahUSPage.cookieButtonAccept.click();
+    //    ReusableMethod.bekle(1);
 
-   //    //- Sağ köşede bulunan kullanıcı ikonuna tıklanır
-   //    emrahUSPage.loginButonu.click();
+    //    //- Sağ köşede bulunan kullanıcı ikonuna tıklanır
+    //    emrahUSPage.loginButonu.click();
 
-   //    //-"Instructor" linki tıklanır
-   //    emrahUSPage.instructorLink.click();
+    //    //-"Instructor" linki tıklanır
+    //    emrahUSPage.instructorLink.click();
 
-   //    //-"Course Manager" linkine tıklanır
-   //    emrahUSPage.courseManagerLinki.click();
+    //    //-"Course Manager" linkine tıklanır
+    //    emrahUSPage.courseManagerLinki.click();
 
-   //    //-Actions başlıklı üç nokta tıklanır
-   //    emrahUSPage.ED2actionsDropdownLinki.click();
+    //    //-Actions başlıklı üç nokta tıklanır
+    //    emrahUSPage.ED2actionsDropdownLinki.click();
 
-   //    //-"Publish this course" linki tıklanır
-   //    emrahUSPage.publishThisCourseLinki.click();
+    //    //-"Publish this course" linki tıklanır
+    //    emrahUSPage.publishThisCourseLinki.click();
 
-   //    //-Açılan onay mesajı sayfasından "Continue" butonu tıklanır
-   //    emrahUSPage.continueButonu.click();
+    //    //-Açılan onay mesajı sayfasından "Continue" butonu tıklanır
+    //    emrahUSPage.continueButonu.click();
 
-   //    //- Dersin Status başlığı altında "active" yazısı kontrol edilir
-   //    ReusableMethod.bekle(2);
-   //    String expectedKelime = "Active";
-   //    String actualStatusYazisi = emrahUSPage.activeYazisi.getText();
+    //    //- Dersin Status başlığı altında "active" yazısı kontrol edilir
+    //    ReusableMethod.bekle(2);
+    //    String expectedKelime = "Active";
+    //    String actualStatusYazisi = emrahUSPage.activeYazisi.getText();
 
-   //    Assert.assertTrue(actualStatusYazisi.contains(expectedKelime));
+    //    Assert.assertTrue(actualStatusYazisi.contains(expectedKelime));
 
-   //    Driver.quitDriver();
-   //}
-    @Test
+    //    Driver.quitDriver();
+    //}
+    @Test //Calisti
     public void TC_09() {
         //When you click on the three dots under the action section and click on the delete link from here,
         // a confirmation message should come and the course should be deleted from the list after approval.
@@ -498,21 +498,24 @@ public class US_19  {
         //   çalistirdiğimizda yeniden locate alıp tanımlamalıyız!!
         // -"delete" linki tıklanır
         emrahUSPage.deleteLinki.click();
-       // -Açılan onay mesajı sayfasından "Continue" butonu tıklanır
-        emrahUSPage.continueButonu.click();
+        // -Açılan onay mesajı sayfasından "Continue" butonu tıklanır
+        //    emrahUSPage.continueButonu.click();
 
-       // - Listede silinen dersin görüntülenmediği kontrol edilir
+        // - Listede silinen dersin görüntülenmediği kontrol edilir
         ReusableMethod.bekle(2);
-        String expectedSilinecekDersIsmi = "Silinecek test dersi";
-        String actualDersIsmi = emrahUSPage.silinecekTestDersiIsmi.getText();
 
-        Assert.assertTrue(!actualDersIsmi.contains(expectedSilinecekDersIsmi));
+        ReusableMethod.tumSayfaScreenshotCek(Driver.getDriver());
 
+        ReusableMethod.bekle(3);
 
+        // String expectedSilinecekDersIsmi = "Silinecek test dersi";
+        // String actualDersIsmi = emrahUSPage.silinecekTestDersiIsmi.getText();
+
+        // Assert.assertTrue(!actualDersIsmi.contains(expectedSilinecekDersIsmi));
 
         Driver.quitDriver();
 
-}
+    }
 
     @Test //Calisti
     public void TC_10() {

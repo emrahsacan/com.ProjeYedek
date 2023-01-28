@@ -128,11 +128,11 @@ public class EmrahUSPage {
     public WebElement publishThisCourseLinki;
 
 
-    @FindBy(xpath = "(//*[@class='mdi mdi-dots-vertical'])[1]")
+    @FindBy(xpath = "(//*[@class='mdi mdi-dots-vertical'])[8]")
     public WebElement silinecekDersinActionsButonu;
 
 
-    @FindBy(xpath = "(//*[text()='Delete'])[9]")
+    @FindBy(xpath = "(//*[text()='Delete'])[8]")
     public WebElement deleteLinki;
 
 

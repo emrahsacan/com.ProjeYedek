@@ -12,56 +12,56 @@ import utilities.ReusableMethod;
 public class US_17 {
 
 
-  @Test //Calisti
-  public void TC_01(){
-      //When selecting a file, the computer folder should be opened.
-      // (Bir dosya seçerken, bilgisayar klasörü açılmalıdır.)
+    @Test //Calisti
+    public void TC_01(){
+        //When selecting a file, the computer folder should be opened.
+        // (Bir dosya seçerken, bilgisayar klasörü açılmalıdır.)
 
-      //- qa.qualtydemy sayfasına gidilir
-      Driver.getDriver().get(ConfigReader.getProperty("emrahQDUrl"));
-      //- Login butonuna basılır
-      EmrahUSPage emrahUSPage = new EmrahUSPage();
-      emrahUSPage.ilkLoginLinki.click();
-      //- e mail ve password girilerek kullanıcı girişi
-      // yapılır
-      emrahUSPage.kullaniciEmailKutusu.sendKeys(ConfigReader.getProperty("emrahEmail"));
-      emrahUSPage.passwordKutusu.sendKeys(ConfigReader.getProperty("emrahPassword"));
-      ReusableMethod.bekle(2);
-      // -cookie accept butonuna basılır
-      emrahUSPage.cookieButtonAccept.click();
-      ReusableMethod.bekle(1);
-      //- Login butonuna basılır
-      emrahUSPage.loginButonu.click();
+        //- qa.qualtydemy sayfasına gidilir
+        Driver.getDriver().get(ConfigReader.getProperty("emrahQDUrl"));
+        //- Login butonuna basılır
+        EmrahUSPage emrahUSPage = new EmrahUSPage();
+        emrahUSPage.ilkLoginLinki.click();
+        //- e mail ve password girilerek kullanıcı girişi
+        // yapılır
+        emrahUSPage.kullaniciEmailKutusu.sendKeys(ConfigReader.getProperty("emrahEmail"));
+        emrahUSPage.passwordKutusu.sendKeys(ConfigReader.getProperty("emrahPassword"));
+        ReusableMethod.bekle(2);
+        // -cookie accept butonuna basılır
+        emrahUSPage.cookieButtonAccept.click();
+        ReusableMethod.bekle(1);
+        //- Login butonuna basılır
+        emrahUSPage.loginButonu.click();
 
-      //- giris yapildiktan sonra sağ üst köşede çıkan Welcome yazisinin
-      // kaybolması beklenir
-      ReusableMethod.bekle(6);
+        //- giris yapildiktan sonra sağ üst köşede çıkan Welcome yazisinin
+        // kaybolması beklenir
+        ReusableMethod.bekle(6);
 
-      //- Sağ köşede bulunan kullanıcı ikonuna tıklanır
-      emrahUSPage.userIconDropdown.click();
+        //- Sağ köşede bulunan kullanıcı ikonuna tıklanır
+        emrahUSPage.userIconDropdown.click();
 
-      //- menüde çıkan user profil butonu tıklanır
-      emrahUSPage.userProfileLinki.click();
+        //- menüde çıkan user profil butonu tıklanır
+        emrahUSPage.userProfileLinki.click();
 
-      //- açılan sayfada photo butonu tıklanır
-      emrahUSPage.userPhotoButonu.click();
+        //- açılan sayfada photo butonu tıklanır
+        emrahUSPage.userPhotoButonu.click();
 
-      //- dosya seç butonu aktif olduğu kontrol edilir
-      Assert.assertTrue(emrahUSPage.dosyaSecLinki.isEnabled());
+        //- dosya seç butonu aktif olduğu kontrol edilir
+        Assert.assertTrue(emrahUSPage.dosyaSecLinki.isEnabled());
 
-     // Dosya Seç kısmına foto dosyası gönderilir
-      emrahUSPage.dosyaSecLinki.sendKeys("C:\\Users\\emrah\\IntelliJ Projeler\\com.QualitydemyProject\\src\\test\\java\\tests\\QA_Emrah\\Team9.jpeg");
+        // Dosya Seç kısmına foto dosyası gönderilir
+        emrahUSPage.dosyaSecLinki.sendKeys("C:\\Users\\emrah\\IntelliJ Projeler\\com.QualitydemyProject\\src\\test\\java\\tests\\QA_Emrah\\Team9.jpeg");
 
-      //- Gönderdiğimiz dosyanın ismi görülmesi icin Ekran Görüntüsü alinir
-      ReusableMethod.bekle(2);
+        //- Gönderdiğimiz dosyanın ismi görülmesi icin Ekran Görüntüsü alinir
+        ReusableMethod.bekle(2);
 
-      ReusableMethod.tumSayfaScreenshotCek(Driver.getDriver());
+        ReusableMethod.tumSayfaScreenshotCek(Driver.getDriver());
 
-      ReusableMethod.bekle(3);
+        ReusableMethod.bekle(3);
 
-      Driver.closeDriver();
+        Driver.closeDriver();
 
-  }
+    }
 
     @Test //Calisti
     public void TC_02() {
